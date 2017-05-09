@@ -1,6 +1,5 @@
 package com.eason.utils;
 
-import com.jimi.exception.LgPlatBusinessException;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -13,7 +12,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -208,55 +209,55 @@ public class PoiExcelUtil {
      * @param is
      * @return Map 包含单元格数据内容的Map对象
      */
-    public Map<Integer, List<String>> readExcelRowContent(InputStream is, Integer sheetIndex, int rows, int cols) throws LgPlatBusinessException {
-        Map<Integer, List<String>> content = new HashMap<Integer, List<String>>();
-        List<String> rowRecord = new ArrayList<>();
-        try {
-            fs = new POIFSFileSystem(is);
-            wb = new HSSFWorkbook(fs);  //此处表示，只支持解析2003版excel文件;解析2007版的是使用XSSFWorkbook类
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        //log.debug(" ######工作表数量=###### "+wb.getNumberOfSheets());
-        sheet = wb.getSheetAt((sheetIndex==null ? 0 : sheetIndex));
-        // 得到总行数
-        int rowNum = sheet.getLastRowNum();
-        //如果row
-        if(rows <= 0){
-            rows = rowNum + 1;
-        }
-        log.debug(" ######表行数=###### " + rowNum);
-        row = sheet.getRow(0);
-        int colNum = row.getPhysicalNumberOfCells();
-        log.debug(" ######表列数=###### " + colNum);
-        if(cols > 0){
-            if(colNum != cols){
-                throw new LgPlatBusinessException("excel文件内容列数不符要求");
-            }
-        }else{
-            cols = colNum;
-        }
-        // 正文内容应该从第二行开始,第一行为表头的标题
-        for (int i = 1; i <= rowNum && i < rows; i++) {
-            row = sheet.getRow(i);
-            if(row != null) {
-                int j = 0;
-                while (j < colNum & j < cols) {
-                    // 每个单元格的数据内容用"-"分割开，以后需要时用String类的replace()方法还原数据
-                    // 也可以将每个单元格的数据设置到一个javabean的属性中，此时需要新建一个javabean
-                    // str += getStringCellValue(row.getCell((short) j)).trim() +
-                    // "-";
-                    log.debug("data=" + row.getCell(j));
-                    String column = getCellFormatValue(row.getCell(j));
-                    rowRecord.add(column);
-                    j++;
-                }
-                content.put(i - 1, rowRecord);
-                rowRecord = new ArrayList<>();
-            }
-        }
-        return content;
-    }
+//    public Map<Integer, List<String>> readExcelRowContent(InputStream is, Integer sheetIndex, int rows, int cols) throws LgPlatBusinessException {
+//        Map<Integer, List<String>> content = new HashMap<Integer, List<String>>();
+//        List<String> rowRecord = new ArrayList<>();
+//        try {
+//            fs = new POIFSFileSystem(is);
+//            wb = new HSSFWorkbook(fs);  //此处表示，只支持解析2003版excel文件;解析2007版的是使用XSSFWorkbook类
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        //log.debug(" ######工作表数量=###### "+wb.getNumberOfSheets());
+//        sheet = wb.getSheetAt((sheetIndex==null ? 0 : sheetIndex));
+//        // 得到总行数
+//        int rowNum = sheet.getLastRowNum();
+//        //如果row
+//        if(rows <= 0){
+//            rows = rowNum + 1;
+//        }
+//        log.debug(" ######表行数=###### " + rowNum);
+//        row = sheet.getRow(0);
+//        int colNum = row.getPhysicalNumberOfCells();
+//        log.debug(" ######表列数=###### " + colNum);
+//        if(cols > 0){
+//            if(colNum != cols){
+//                throw new LgPlatBusinessException("excel文件内容列数不符要求");
+//            }
+//        }else{
+//            cols = colNum;
+//        }
+//        // 正文内容应该从第二行开始,第一行为表头的标题
+//        for (int i = 1; i <= rowNum && i < rows; i++) {
+//            row = sheet.getRow(i);
+//            if(row != null) {
+//                int j = 0;
+//                while (j < colNum & j < cols) {
+//                    // 每个单元格的数据内容用"-"分割开，以后需要时用String类的replace()方法还原数据
+//                    // 也可以将每个单元格的数据设置到一个javabean的属性中，此时需要新建一个javabean
+//                    // str += getStringCellValue(row.getCell((short) j)).trim() +
+//                    // "-";
+//                    log.debug("data=" + row.getCell(j));
+//                    String column = getCellFormatValue(row.getCell(j));
+//                    rowRecord.add(column);
+//                    j++;
+//                }
+//                content.put(i - 1, rowRecord);
+//                rowRecord = new ArrayList<>();
+//            }
+//        }
+//        return content;
+//    }
 
     /**
      * 获取单元格数据内容为字符串类型的数据
