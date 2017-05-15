@@ -179,6 +179,8 @@ private static void bubbleSort(int[] a, int n) {
 
 - 算法思想
 
+归并（Merge）排序法是将两个（或两个以上）有序表合并成一个新的有序表，即把待排序序列分为若干个子序列，每个子序列是有序的。然后再把有序子序列合并为整体有序序列。
+
 - 算法实现
 
 ```
@@ -201,4 +203,5 @@ private static void bubbleSort(int[] a, int n) {
 不稳定的排序：希尔排序，快速排序，简单选择排序，堆排序
 
 
+![](http://img.my.csdn.net/uploads/201207/19/1342700879_2982.jpg)
 

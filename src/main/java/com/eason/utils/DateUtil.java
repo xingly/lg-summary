@@ -295,7 +295,7 @@ public class DateUtil {
     }
 
 
-//    public static void main(String[] args) {
-//        isSameDay(new Date(), new Date());
-//    }
+    public static void main(String[] args) {
+        System.out.println((Math.pow(2,41) - System.currentTimeMillis())/1000/3600/24/365);
+    }
 }
