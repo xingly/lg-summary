@@ -1,6 +1,7 @@
 package com.eason.interview._3_algorithm;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -127,9 +128,8 @@ public class Sorted {
 //        selectSort(a, n);
 //        bubbleSort(a, n);
         quickSort(a, 0, a.length - 1);
-        for (int i : a) {
-            System.out.print(i + ",");
-        }
+
+        System.out.println(Arrays.toString(a));
     }
 
 
