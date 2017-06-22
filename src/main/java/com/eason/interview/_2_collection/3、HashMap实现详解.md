@@ -15,7 +15,7 @@ HashMap提供了三个构造函数：
 
 源码如下：
 
-```java
+``` java
 public V put(K key, V value) {  
         //当key为null，调用putForNullKey方法，保存null与table第一个位置中，这是HashMap允许为null的原因  
         if (key == null)  
@@ -51,7 +51,7 @@ public V put(K key, V value) {
 
 该方法为一个纯粹的数学计算，就是计算h的hash值。
 
-```java
+``` java
 static int hash(int h) {  
         h ^= (h >>> 20) ^ (h >>> 12);  
         return h ^ (h >>> 7) ^ (h >>> 4);  
@@ -63,7 +63,7 @@ static int hash(int h) {
 
 由于取模（除完取整）本身耗能太大（因为取模是多次的加法或减法，所以耗能很大），HashMap采用下面方式实现取模，效率极大提高。
 
-```java
+``` java
 static int indexFor(int h, int length) {  
         return h & (length-1);  
     } 
@@ -84,7 +84,7 @@ HashMap的底层数组长度总是2的n次方，在构造函数中存在：capac
 
 >答：每次扩容为原来长度的两倍。
 
-```java
+``` java
 void addEntry(int hash, K key, V value, int bucketIndex) {  
         
         ...
@@ -164,7 +164,7 @@ loadFactor默认是0.75。HashMap扩容的阈值是元素个数大于容量*load
 
  **注意和ConcurrentHashMap的16个桶的区别，它的桶是指Segment。**
 
-```java
+``` java
 void addEntry(int hash, K key, V value, int bucketIndex) {  
         //获取bucketIndex处的Entry  
         Entry<K, V> e = table[bucketIndex];  
@@ -179,7 +179,7 @@ void addEntry(int hash, K key, V value, int bucketIndex) {
 ### get方法
 先找到hash对应桶索引，再循环链表。
 
-```java
+``` java
 public V get(Object key) {  
         // 若为null，调用getForNullKey方法返回相对应的value  
         if (key == null)  

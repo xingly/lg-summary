@@ -20,7 +20,7 @@ ArrayList基于动态数组实现，LinkedList基于链表实现。
 
 - LinkedList自己有内部类（Entry），每个元素都是一个Entry对象，空间浪费在存储其他Entry对象信息上
     
-```java
+``` java
 private static class Entry {
          Object element;
          Entry next;

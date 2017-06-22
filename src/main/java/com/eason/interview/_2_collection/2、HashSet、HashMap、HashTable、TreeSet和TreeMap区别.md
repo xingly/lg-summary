@@ -5,7 +5,7 @@
 
     在HashSet中插入对象其实只不过是内部做了
 
-```java
+``` java
 public boolean add(Object o) {
     return map.put(o, PRESENT)==null;
 }
@@ -40,7 +40,7 @@ ConcurrentHashMap允许多个修改操作并发进行，其关键在于使用了
 
 只要多个修改操作发生在不同的段上，它们就可以并发进行。
 
-```java
+``` java
 
 public ConcurrentHashMap(int initialCapacity) {
     this(initialCapacity, 0.75F, 16);

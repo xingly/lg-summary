@@ -3,7 +3,7 @@
 ### 一、使用
 #### 使用
 
-```java
+``` java
 List<Integer> iList = new ArrayList<>();
 iList.add(3);
 iList.add(4);
@@ -21,7 +21,7 @@ System.out.println("iList = " + iList);
 
 #### 效果
 
-```java
+``` java
 =============排序前=============
 iList = [3, 4, 1, 2, 5]
 
@@ -32,7 +32,7 @@ iList = [1, 2, 3, 4, 5]
 ### 二、算法
 对list的排序是，先转成数组，再利用Arrays类的sort()排序，最后再复制到list中。
 
-```java
+``` java
 Object[] a = list.toArray();
 Arrays.sort(a);
 ListIterator i = list.listIterator();
@@ -45,7 +45,7 @@ for(int j = 0; j < a.length; ++j) {
 
 #### Arrays的sort()方法代码
 
-```java
+``` java
 if(Arrays.LegacyMergeSort.userRequested) {
     legacyMergeSort(a);
 } else {
@@ -60,7 +60,7 @@ if(Arrays.LegacyMergeSort.userRequested) {
 
 #### legacyMergeSort实现
 
-```java
+``` java
 
 private static void legacyMergeSort(Object[] a) {
     Object[] aux = (Object[])a.clone();
@@ -111,7 +111,7 @@ private static void mergeSort(Object[] src, Object[] dest, int low, int high, in
 
 #### ComparableTimSort实现
 
-```java
+``` java
 static void sort(Object[] a, int lo, int hi) {
     rangeCheck(a.length, lo, hi);
     int nRemaining = hi - lo;
