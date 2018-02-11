@@ -4,8 +4,8 @@
 - 流的本质：数据传输，根据数据传输特性将流抽象为各种类，方便更直观的进行数据操作
 - 流的作用：为数据源和目的地建立一个输送通道
 
-![](输入流.png)
-![](输出流.png)
+![](img/输入流.png)
+![](img/输出流.png)
 
 
 ## IO体系结构
@@ -17,23 +17,23 @@
 - RandomAccessFile：功能丰富，可以从文件的任意位置进行存取（输入输出）操作
 
 #### 结构图
-![](结构图.png)
+![](img/结构图.png)
 
 #### 思维导图
-![](IO思维导图.png)
+![](img/IO思维导图.png)
 
 #### UML类图
-![](File.png)
+![](img/File.png)
 
-![](RandomAccessFile.png)
+![](img/RandomAccessFile.png)
 
-![](InputStream.png)
+![](img/InputStream.png)
 
-![](OutputStream.png)
+![](img/OutputStream.png)
 
-![](Reader.png)
+![](img/Reader.png)
 
-![](Writer.png)
+![](img/Writer.png)
 
 
 ## 字节流和字符流的区别
