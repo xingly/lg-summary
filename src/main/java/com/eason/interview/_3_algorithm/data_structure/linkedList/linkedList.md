@@ -4,24 +4,20 @@
 ### 单链表反转
 
 ```
-public static Node linked(Node head) {
-        // cur 当前节点，pre前驱，post后继
-        Node pre, cur, post;
-        // 初始，cur指向第一个节点，pre指向cur前驱，post指向cur后继
-        pre = head;
-        cur = head.getNext();
+public class Node{
+    public int value;
+    public Node next;
 
-        while (cur != null) {// 循环中，p.next指向前驱节点pre，pre、cur、post各向后移动一个节点
-            post = cur.getNext();
-            cur.setNext(pre);
-
-            pre = cur;
-            cur = post;
-        }
-        head.setNext(null);
-
-        return pre;
+    public Node(int data){
+        this.value = data;
     }
+}
+
+public void reverseList(Node head){
+    if(head == null)
+        return;
+
+}
 ```
 
 ### 如何进行单链表的排序 (冒泡、归并、快排)
