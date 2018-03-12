@@ -9,7 +9,7 @@ package com.eason.设计模式.单例模式;
 public class Singleton {
 
     // 饿汉模式
-//    private static Singleton instance = new Singleton();
+//    private static final Singleton instance = new Singleton();
 //
 //    private Singleton(){}
 //
@@ -17,26 +17,30 @@ public class Singleton {
 //        return instance;
 //    }
 
-    // 懒汉模式
-//    private static Singleton instance;
-//
-//    private Singleton() {}
-//
-//    public static synchronized Singleton getInstance() {
-//        if (instance == null) {
-//            instance = new Singleton();
-//        }
-//        return instance;
-//    }
+    // 懒汉模式（双重检查锁）
+    private static volatile Singleton instance;
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
 
 
     // 懒汉模式（静态内部类）
-    private static class SingletonHolder{
-        public static Singleton instance = new Singleton();
-    }
-    private Singleton(){}
-    public static Singleton newInstance(){
-        return SingletonHolder.instance;
-    }
+//    private static class SingletonHolder{
+//        public static Singleton instance = new Singleton();
+//    }
+//    private Singleton(){}
+//    public static Singleton newInstance(){
+//        return SingletonHolder.instance;
+//    }
 
 }
