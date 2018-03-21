@@ -39,7 +39,7 @@ public class CountListIntegerSumForCountdownLatch {
 
             //所以不需要返回值方式
             Future<Long> future = executor.submit(new Callable<Long>() {
-                private Long subSum = 0l;
+                private Long subSum = 0L;
 
                 @Override
                 public Long call() throws Exception {

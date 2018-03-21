@@ -124,14 +124,15 @@ public class DateUtil {
         SimpleDateFormat shortSdf = new SimpleDateFormat("yyyy-MM-dd");
         Date now = null;
         try {
-            if (currentMonth >= 1 && currentMonth <= 3)
+            if (currentMonth >= 1 && currentMonth <= 3) {
                 c.set(Calendar.MONTH, 0);
-            else if (currentMonth >= 4 && currentMonth <= 6)
+            } else if (currentMonth >= 4 && currentMonth <= 6) {
                 c.set(Calendar.MONTH, 3);
-            else if (currentMonth >= 7 && currentMonth <= 9)
+            } else if (currentMonth >= 7 && currentMonth <= 9){
                 c.set(Calendar.MONTH, 4);
-            else if (currentMonth >= 10 && currentMonth <= 12)
+            }else if (currentMonth >= 10 && currentMonth <= 12){
                 c.set(Calendar.MONTH, 9);
+            }
             c.set(Calendar.DATE, 1);
             now = longSdf.parse(shortSdf.format(c.getTime()) + " 00:00:00");
         } catch (Exception e) {

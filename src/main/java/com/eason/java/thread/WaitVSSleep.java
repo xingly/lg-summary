@@ -21,6 +21,7 @@ public class WaitVSSleep {
 }
 
 class SleepTest extends Thread{
+    @Override
     public void run() {
         System.out.println("线程名：" + Thread.currentThread().getName() + "开始");
         try {

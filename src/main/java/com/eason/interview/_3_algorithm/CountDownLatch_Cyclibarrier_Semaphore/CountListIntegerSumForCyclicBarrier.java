@@ -47,7 +47,7 @@ public class CountListIntegerSumForCyclicBarrier {
 
             //所以不需要返回值方式
             executor.execute(new Runnable() {
-                private Long subSum = 0l;
+                private Long subSum = 0L;
 
                 @Override
                 public void run() {
